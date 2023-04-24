@@ -4,6 +4,6 @@ interface AvatarProps{
     src:string,
 }
 const Avatar:React.FC<AvatarProps> = ({src}) =>{
-    return <Image src={src} alt="avatar" width={60} height={60} className="rounded-full" />
+    return <Image priority={true} src={src} alt="avatar" width={60} height={60} className="rounded-full" />
 }
 export default Avatar
