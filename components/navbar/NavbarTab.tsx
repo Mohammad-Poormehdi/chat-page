@@ -18,7 +18,7 @@ const NavbarTab = () => {
     (alt: string) => {
       setSelectedItem(alt);
     },
-    [selectedItem]
+    []
   );
   return (
     <div className="flex items-center gap-5 max-md:hidden">

@@ -13,7 +13,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
     (data: string) => {
       setInput(data);
     },
-    [input]
+    []
   );
   return (
     <div className="flex my-5 justify-between w-full items-center rounded-full bg-white px-4 py-3 dark:bg-primary-dark  ">

@@ -11,7 +11,7 @@ const Home = () => {
   const [isDark, setIsDark] = useState(false)
   const onDarkMode = useCallback((data:boolean)=>{
     setIsDark(data)
-  },[isDark])
+  },[])
   return (
     <div className={`${isDark && 'dark'} h-full`}>
     <div className="bg-background pt-5 h-full dark:bg-background-dark">
