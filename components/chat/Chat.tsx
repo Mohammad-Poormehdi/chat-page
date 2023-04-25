@@ -22,6 +22,7 @@ const Chat = () => {
   const addMessage = useCallback(
     (message: any) => {
       if (message.message===''){
+        console.log(message)
         return
       }
       setMassages([...messages, message]);

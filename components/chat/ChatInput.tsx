@@ -13,7 +13,7 @@ interface ChatInputProps {
 }
 
 const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
-  const [input, setInput] = useState<string>();
+  const [input, setInput] = useState<string>('');
   const handleInput = useCallback((data: string) => {
     setInput(data);
   }, []);
@@ -23,7 +23,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
         <HiPaperAirplane
           onClick={() => {
             onSubmit({ id: cuid(), isBot: false, message: input });
-            setInput("");
+            setInput('')
           }}
           size={30}
           className="text-primary scale-x-[-1] cursor-pointer mx-5 dark:text-secondary"
