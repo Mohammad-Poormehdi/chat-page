@@ -8,6 +8,7 @@ interface ProfileItemProps {
   onClick?:()=>void | undefined,
 }
 const ProfileItem: React.FC<ProfileItemProps> = ({ icon:Icon, className, onClick }) => {
+  
   return <Icon onClick={onClick} size={24} className={`text-icon cursor-pointer ${className}`} />;
 };
 export default ProfileItem;
