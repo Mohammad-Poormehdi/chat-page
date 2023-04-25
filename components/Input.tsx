@@ -1,22 +1,18 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 
 interface InputProps {
-  value:string | undefined,
-  placeholder: string;
-  onChange: (data: string) => void;
+  type: string;
+  placeholder?: string;
+  maxLength?: number;
 }
-const Input: React.FC<InputProps> = ({ value, placeholder, onChange }) => {
 
+const Input: React.FC<InputProps> = ({ type, placeholder, maxLength }) => {
   return (
-    <textarea
-    value={value}
-      dir="rtl"
-      onChange={(e) => {
-        onChange(e.target.value);
-        
-      }}
+    <input
+      type={type}
       placeholder={placeholder}
-      className=" rounded-xl pt-4 px-3 w-full focus:outline-none resize-none dark:text-white dark:bg-primary-dark"
+      maxLength={maxLength}
+      className="bg-white text-center w-full px-3 py-2 rounded-2xl focus:outline-1 outline-icon"
     />
   );
 };

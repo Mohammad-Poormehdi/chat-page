@@ -1,5 +1,5 @@
 import { HiPaperAirplane } from "react-icons/hi";
-import Input from "../Input";
+import Input from "../Textarea";
 import { useCallback, useState } from "react";
 import cuid from "cuid";
 
