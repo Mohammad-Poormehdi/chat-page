@@ -19,7 +19,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
   }, []);
   return (
     <div className="py-4 px-10 fixed bottom-0 left-0 w-4/5 max-md:w-full bg-background dark:bg-background-dark ">
-      <div className="flex my-5 justify-between w-full items-center rounded-full bg-white px-4 py-3 dark:bg-primary-dark  ">
+      <div className="flex my-5 justify-between w-full h-[60px] items-center rounded-full bg-white px-3 py-2 dark:bg-primary-dark  ">
         <HiPaperAirplane
           onClick={() => {
             onSubmit({ id: cuid(), isBot: false, message: input });

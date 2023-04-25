@@ -16,7 +16,7 @@ const Textarea: React.FC<TextareaProps> = ({ value, placeholder, onChange }) => 
         
       }}
       placeholder={placeholder}
-      className=" rounded-xl pt-4 px-3 w-full focus:outline-none resize-none dark:text-white dark:bg-primary-dark"
+      className=" rounded-xl pt-4 px-3 w-full h-[55px] focus:outline-none resize-none dark:text-white dark:bg-primary-dark"
     />
   );
 };
