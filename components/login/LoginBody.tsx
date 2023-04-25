@@ -44,7 +44,7 @@ const LoginBody = () => {
           active
         />
         {step === STEPS.VERIFY && (
-          <div className="flex items-center text-primary justify-between">
+          <div className="flex items-center text-primary justify-between dark:text-white">
             <p>00:00</p>
             <p>ارسال مجدد کد</p>
           </div>

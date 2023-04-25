@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({ type, placeholder, maxLength }) => {
       type={type}
       placeholder={placeholder}
       maxLength={maxLength}
-      className="bg-white text-center w-full px-3 py-2 rounded-2xl focus:outline-1 outline-icon"
+      className="bg-white text-center w-full px-3 py-2 rounded-2xl focus:outline-1 outline-icon dark:bg-primary-dark dark:text-white"
     />
   );
 };
