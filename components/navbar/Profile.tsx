@@ -3,8 +3,9 @@ import ProfileItem from "./ProfileItem";
 import { HiBell } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
 import { BsBrightnessHighFill } from "react-icons/bs";
-import {FaMoon} from 'react-icons/fa'
-import { useCallback, useState } from "react";
+import { FaMoon } from "react-icons/fa";
+import { useCallback, useEffect, useReducer, useState } from "react";
+import { useRouter } from "next/router";
 
 const icons = [
   { icon: HiBell, alt: "notifications" },
@@ -12,28 +13,39 @@ const icons = [
   { icon: BsBrightnessHighFill, alt: "brightness" },
 ];
 
-interface ProfileProps{
-    onDarkMode:(data:boolean)=>void,
-}
-const Profile:React.FC<ProfileProps> = ({onDarkMode}) => {
+const Profile = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
+  const router = useRouter();
+  useEffect(()=>{
+    handleDarkMode()
+  },[])
   const handleDarkMode = useCallback(() => {
-    setIsDark((prevState)=>!prevState);
-    onDarkMode(!isDark)
-  }, [isDark, onDarkMode]);
+    const html = document.querySelector("html");
+    html?.classList.toggle("dark");
+    if(html?.classList.contains('dark')){
+      setIsDark(true)
+    }
+    else{
+      setIsDark(false)
+    }
+  }, []);
   return (
     <div className="flex items-center gap-5 last:max-md:block">
-      <Avatar src="/../public/avatar.jpg" />
-      {icons.map((item) => (
-        <ProfileItem
-          onClick={item.alt === "brightness" ? handleDarkMode : undefined}
-          key={item.alt}
-          icon={isDark && item.alt==='brightness' ? FaMoon : item.icon}
-          className={
-            item.alt == "brightness" ? "max-md:block text-primary dark:text-secondary" : "max-md:hidden"
-          }
-        />
-      ))}
+      {router.route !== "/login" && <Avatar src="/../public/avatar.jpg" />}
+      {icons.map((item) => {
+        return (
+          <ProfileItem
+            onClick={item.alt === "brightness" ? handleDarkMode : undefined}
+            key={item.alt}
+            icon={isDark && item.alt === "brightness" ? FaMoon : item.icon}
+            className={
+              item.alt == "brightness"
+                ? "max-md:block text-primary dark:text-secondary"
+                : "max-md:hidden"
+            }
+          />
+        );
+      })}
     </div>
   );
 };
