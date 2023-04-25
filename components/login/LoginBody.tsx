@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "../Button";
 import Input from "../Input";
 import { useRouter } from "next/router";
+import { RiH1 } from "react-icons/ri";
 
 enum STEPS {
   PHONE,
@@ -10,11 +11,20 @@ enum STEPS {
 }
 const LoginBody = () => {
   const [step, setStep] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <div className={`flex items-center justify-center w-full ${step === STEPS.VERIFY ? 'pt-40' : 'pt-10'}`}>
+    <div className={`flex items-center justify-center w-full pt-64`}>
       <div className="space-y-8 w-[500px] px-10">
-        {step === STEPS.PHONE ? (
+        {step == STEPS.PHONE ? (
+          <h1 className="text-center text-4xl text-primary dark:text-white">
+            شماره همراه را وارد کنید
+          </h1>
+        ) : (
+          <h1 className="text-center text-4xl text-primary dark:text-white">
+             کد ارسال شده را وارد کنید
+          </h1>
+        )}
+        {/* {step === STEPS.PHONE ? (
           <div className="w-[200px] h-[300px] mx-auto rounded-lg bg-icon text-white flex justify-center items-center">
             <p>ویدیو توضیحات</p>
           </div>
@@ -26,7 +36,7 @@ const LoginBody = () => {
             height={300}
             className="w-auto h-auto mx-auto"
           />
-        )}
+        )} */}
         {step === STEPS.PHONE ? (
           <Input type="text" placeholder="شماره همراه" />
         ) : (
@@ -39,7 +49,11 @@ const LoginBody = () => {
           </div>
         )}
         <Button
-          onClick={step===STEPS.PHONE ? ()=>setStep(step+1) : ()=>router.push('/') }
+          onClick={
+            step === STEPS.PHONE
+              ? () => setStep(step + 1)
+              : () => router.push("/")
+          }
           label={step === STEPS.PHONE ? "ارسال کد" : "ورود به برنامه"}
           active
         />
