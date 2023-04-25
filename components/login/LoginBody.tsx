@@ -12,7 +12,7 @@ const LoginBody = () => {
   const [step, setStep] = useState(0);
   const router = useRouter()
   return (
-    <div className="flex items-center justify-center w-full pt-40">
+    <div className={`flex items-center justify-center w-full ${step === STEPS.VERIFY ? 'pt-40' : 'pt-10'}`}>
       <div className="space-y-8 w-[500px] px-10">
         {step === STEPS.PHONE ? (
           <div className="w-[200px] h-[300px] mx-auto rounded-lg bg-icon text-white flex justify-center items-center">
