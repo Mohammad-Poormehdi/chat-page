@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({ label, active, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`px-4 w-full py-3 rounded-2xl text-sm ${
+      className={`px-4 w-full py-3 rounded-2xl text-sm max-md:px-3 max-md:py-2 ${
         active ? "text-white bg-primary" : 'text-black bg-white dark:bg-primary-dark dark:text-white'
       }`}
     >

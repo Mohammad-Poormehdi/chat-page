@@ -26,7 +26,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
             setInput('')
           }}
           size={30}
-          className="text-primary scale-x-[-1] cursor-pointer mx-5 dark:text-secondary"
+          className="text-primary -rotate-90 cursor-pointer mx-5 dark:text-secondary"
         />
         <Textarea
           onChange={handleInput}

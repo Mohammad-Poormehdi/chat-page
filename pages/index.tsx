@@ -19,7 +19,7 @@ const Home = () => {
     </Head>
       <div className="bg-background pt-5 h-full dark:bg-background-dark">
         <Navbar />
-        <div className="flex gap-5">
+        <div className="flex gap-5 max-md:flex-col-reverse">
           <Chat />
           <ChatMenu />
         </div>
