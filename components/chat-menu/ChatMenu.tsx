@@ -30,7 +30,7 @@ const ChatMenu = () => {
         <RiMessage3Fill className="text-icon" size={20} />
         <p>سابقه</p>
       </div>
-      <div className="flex rounded-2xl my-4 bg-white dark:bg-primary-dark">
+      <div className="flex rounded-full my-4 bg-white dark:bg-primary-dark">
         {buttons.map((button) => (
           <Button
             onClick={() => handleShowModal(true)}
