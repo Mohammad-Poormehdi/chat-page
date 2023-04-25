@@ -31,7 +31,7 @@ const Profile = () => {
   }, []);
   return (
     <div className="flex items-center gap-5 last:max-md:block">
-      {router.route !== "/login" && <Avatar src="/../public/avatar.jpg" />}
+      {router.route !== "/login" && <Avatar src="/avatar.jpg" />}
       {icons.map((item) => {
         return (
           <ProfileItem

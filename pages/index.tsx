@@ -5,7 +5,7 @@ import Chat from "@/components/chat/Chat";
 import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
 import { useCallback, useState } from "react";
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {},
   };
