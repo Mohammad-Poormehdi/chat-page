@@ -30,8 +30,8 @@ const Chat = () => {
     [messages]
   );
   return (
-    <div className=" w-4/5 relative max-md:w-full py-5 pl-12 max-md:px-5 bg-background dark:bg-background-dark ">
-      <div dir="rtl" className="chat-box h-[700px] overflow-y-auto py-10 ">
+    <div className=" w-4/5 relative max-md:w-full py-5 pl-12 max-md:px-5 max-md:pt-0 bg-background dark:bg-background-dark ">
+      <div dir="rtl" className="chat-box h-[700px] overflow-y-auto py-10 max-md:pt-0 ">
         <div dir="ltr" className="space-y-6 pl-40 pb-24 max-md:pl-0">
           {messages.map((message: any) => (
             <UserMessage

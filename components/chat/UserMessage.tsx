@@ -44,13 +44,29 @@ const UserMessage: React.FC<UserMessageProps> = ({
     <div className="flex gap-6">
       <div
         dir="rtl"
-        className={`px-4 py-3 relative w-full rounded-xl flex whitespace-pre-line items-center ${
+        className={`px-4 py-3 max-md:px-6 max-md:py-8 relative w-full rounded-xl flex whitespace-pre-line items-center ${
           isBot
             ? "bg-white dark:bg-primary-dark dark:text-white"
             : "bg-secondary"
         }`}
       >
         {message}
+        {isBot && (
+          <div className="flex justify-center md:hidden absolute left-4 top-2">
+            <div dir="ltr" className=" flex text-black dark:text-white">
+              <button
+                aria-label="like message"
+                onClick={handleLike}
+                className="block"
+              >
+                {isLiked ? <AiFillLike /> : <AiOutlineLike />}
+              </button>
+              <button aria-label="dislike message" onClick={handleDislike}>
+                {isDisliked ? <AiFillDislike /> : <AiOutlineDislike />}
+              </button>
+            </div>
+          </div>
+        )}
         {isBot && (
           <div className=" absolute left-4 bottom-4 flex items-center gap-5">
             <AiOutlineDown className=" cursor-pointer text-icon" />
@@ -61,7 +77,7 @@ const UserMessage: React.FC<UserMessageProps> = ({
           </div>
         )}
       </div>
-      <div className="space-y-2">
+      <div className="space-y-2 max-md:hidden">
         <Avatar src={avatarSrc} />
         {isBot && (
           <div className="flex justify-center">
