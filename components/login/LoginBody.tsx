@@ -28,7 +28,7 @@ const LoginBody = () => {
           />
         )}
         {step === STEPS.PHONE ? (
-          <Input type="text" placeholder="شماره همراه" maxLength={1} />
+          <Input type="text" placeholder="شماره همراه" />
         ) : (
           <div className="flex justify-center items-center gap-4">
             <Input type="text" maxLength={1} />
