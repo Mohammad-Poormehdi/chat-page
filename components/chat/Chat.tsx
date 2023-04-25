@@ -18,8 +18,12 @@ const demoMessages = [
 
 const Chat = () => {
   const [messages, setMassages] = useState<Array<object>>(demoMessages);
+
   const addMessage = useCallback(
-    (message: object) => {
+    (message: any) => {
+      if (message.message===''){
+        return
+      }
       setMassages([...messages, message]);
     },
     [messages]
