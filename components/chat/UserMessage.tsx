@@ -53,10 +53,10 @@ const UserMessage: React.FC<UserMessageProps> = ({
         {isBot && (
           <div className="flex justify-center">
             <div className="space-y-2 text-black dark:text-white">
-              <button onClick={handleLike} className="block">
+              <button aria-label="like message" onClick={handleLike} className="block">
                 {isLiked ? <AiFillLike /> : <AiOutlineLike />}
               </button>
-              <button onClick={handleDislike}>
+              <button aria-label="dislike message" onClick={handleDislike}>
                 {isDisliked ? <AiFillDislike /> : <AiOutlineDislike />}
               </button>
             </div>
