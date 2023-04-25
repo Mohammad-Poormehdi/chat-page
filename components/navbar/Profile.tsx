@@ -40,7 +40,7 @@ const Profile = () => {
             icon={isDark && item.alt === "brightness" ? FaMoon : item.icon}
             className={
               item.alt == "brightness"
-                ? "max-md:block text-primary dark:text-secondary"
+                ? "max-md:block text-primary dark:text-secondary"  
                 : "max-md:hidden"
             }
           />
