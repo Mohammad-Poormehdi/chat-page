@@ -4,6 +4,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   maxLength?: number;
+  
 }
 
 const Input: React.FC<InputProps> = ({ type, placeholder, maxLength }) => {
@@ -12,7 +13,7 @@ const Input: React.FC<InputProps> = ({ type, placeholder, maxLength }) => {
       type={type}
       placeholder={placeholder}
       maxLength={maxLength}
-      className="bg-white text-center w-full h-[60px] px-3 py-2 rounded-full focus:outline-1 outline-icon dark:bg-primary-dark dark:text-white"
+      className={`bg-white text-center w-full h-[60px] ${maxLength===1 ? 'rounded-2xl' : 'rounded-full'} py-2 px-5 focus:outline-1 outline-icon dark:bg-primary-dark dark:text-white`}
     />
   );
 };
