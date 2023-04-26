@@ -16,11 +16,11 @@ const LoginBody = () => {
     <div className={`flex items-center justify-center w-full pt-64`}>
       <div className="space-y-8 w-[500px] px-10">
         {step == STEPS.PHONE ? (
-          <h1 className="text-center text-4xl text-primary dark:text-white">
+          <h1 className="text-center text-2xl text-primary dark:text-white">
             شماره همراه را وارد کنید
           </h1>
         ) : (
-          <h1 className="text-center text-4xl text-primary dark:text-white">
+          <h1 className="text-center text-2xl text-primary dark:text-white">
              کد ارسال شده را وارد کنید
           </h1>
         )}
