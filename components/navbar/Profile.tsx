@@ -31,7 +31,7 @@ const Profile = () => {
   }, []);
   return (
     <div className="flex items-center gap-5 last:max-md:block">
-      {router.route !== "/login" && <Avatar src="/avatar.jpg" />}
+      {router.route !== "/login" && <Avatar className="cursor-pointer" onClick={()=>router.push('/profile')} src="/avatar.jpg" />}
       {icons.map((item) => {
         if (router.route !== '/login' || item.alt === 'brightness'){return (
           

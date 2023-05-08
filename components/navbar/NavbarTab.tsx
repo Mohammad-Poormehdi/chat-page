@@ -4,6 +4,7 @@ import {TbNotebook} from 'react-icons/tb'
 import {FaBrain} from 'react-icons/fa'
 import {FaComments} from 'react-icons/fa'
 import {AiFillHome} from 'react-icons/ai'
+import { useRouter } from "next/router";
 
 const icons = [
   { icon:TbNotebook, alt: "copy" },
@@ -14,9 +15,13 @@ const icons = [
 
 const NavbarTab = () => {
   const [selectedItem, setSelectedItem] = useState("comments");
+  const router = useRouter()
   const handleClick = useCallback(
     (alt: string) => {
       setSelectedItem(alt);
+      if(alt==='comments'){
+        router.push('/')
+      }
     },
     []
   );
