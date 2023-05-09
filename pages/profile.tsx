@@ -19,9 +19,9 @@ const Profile = () => {
         <title>پروفایل کاربری</title>
         <meta name="description" content="پنل پروفایل کاربری" />
       </Head>
-      <div className="pt-5 h-full bg-background dark:bg-background-dark">
+      <div className="pt-5 h-auto bg-background dark:bg-background-dark">
         <Navbar />
-        <div className="h-full flex items-center justify-center max-md:p-10 bg-background dark:bg-background-dark">
+        <div className="h-full flex py-[205px] items-center justify-center max-md:p-10 bg-background dark:bg-background-dark">
           <div className="bg-white space-y-10 py-8 px-40 rounded-xl mx-auto w-1/2 max-md:w-full max-md:px-10 dark:bg-primary-dark">
             <div className="relative ">
               <Avatar src="/avatar.jpg" className="mx-auto scale-150" />
