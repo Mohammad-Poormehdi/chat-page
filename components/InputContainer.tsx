@@ -41,7 +41,7 @@ const InputContainer: React.FC<InputContainerProps> = ({
           onBlur={onBlur}
           onChange={onChange}
         />
-        <span className="absolute left-[30%]">{label}</span>
+        <span className="absolute left-0">{label}</span>
       </div>
     </TextContainer>
   );
