@@ -2,12 +2,43 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Scores from "@/components/Scores";
 import TextContainer from "@/components/TextContainer";
-import ChargeSection from "@/components/charge/Range";
+import Range from "@/components/charge/Range";
 import PaymentCard from "@/components/charge/PaymentCard";
 import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
+import InputContainer from "@/components/InputContainer";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 const Charge = () => {
+  const [credit, setCredit] = useState(100);
+  const [price, setPrice] = useState(5000);
+  const handleCreditChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setCredit(Number(event.currentTarget.value));
+    },
+    []
+  );
+  const handlePriceChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setPrice(Number(event.currentTarget.value));
+    },
+    []
+  );
+  const handleCreditBlur = useCallback(() => {
+    if (credit < 10) {
+      setCredit(10);
+    } else if (credit > 10000) {
+      setCredit(10000);
+    } else {
+      setCredit((credit) => Math.round(credit));
+    }
+  }, [credit]);
+  useEffect(() => {
+    setPrice(credit * 50);
+  }, [credit]);
+  useEffect(() => {
+    setCredit(price / 50);
+  }, [price]);
   return (
     <>
       <Head>
@@ -57,8 +88,17 @@ const Charge = () => {
               <PaymentCard />
             </div>
             <div className="w-full space-y-9 p-5 rounded-xl bg-white dark:bg-primary-dark max-md:order-1">
-              <ChargeSection />
-              <TextContainer>1000 امتیاز</TextContainer>
+              <Range onChange={handleCreditChange} value={String(credit)} />
+              <InputContainer
+                type="number"
+                label="امتیاز"
+                min={10}
+                max={10000}
+                step={1}
+                onChange={handleCreditChange}
+                onBlur={handleCreditBlur}
+                value={String(credit)}
+              />
               <TextContainer>
                 <input
                   type="text"
@@ -66,9 +106,20 @@ const Charge = () => {
                   placeholder="کد افزایش امتیاز"
                 />
               </TextContainer>
-              <button className="px-3 py-2 bg-orange-400 rounded-full text-white w-full">اعتبار سنجی</button>
+              <button className="px-3 py-2 bg-orange-400 rounded-full text-white w-full">
+                اعتبار سنجی
+              </button>
               <p className="text-center dark:text-white">15% بیشتر شارژ شدید</p>
-              <TextContainer>50000 تومان</TextContainer>
+              <InputContainer
+                type="number"
+                min={5000}
+                max={500000}
+                label="تومان"
+                step={50}
+                onBlur={handleCreditBlur}
+                onChange={handlePriceChange}
+                value={String(price)}
+              />
               <Button label="شارژ کن" active />
             </div>
           </div>
