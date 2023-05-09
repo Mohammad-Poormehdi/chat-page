@@ -32,7 +32,7 @@ const Profile = () => {
 
             <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
               {profile.map((item) => (
-                <TextContainer>{item}</TextContainer>
+                <TextContainer key={item}>{item}</TextContainer>
               ))}
             </div>
             <Scores score={2000} experience={1809} referral={12} />
