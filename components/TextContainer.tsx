@@ -5,7 +5,7 @@ interface TextContainerProps {
 }
 const TextContainer: React.FC<TextContainerProps> = ({ children }) => {
   return (
-    <div className="w-full border border-neutral-400 rounded-full py-2 flex  items-center justify-center dark:bg-icon max-md:flex-col">
+    <div dir="rtl" className="w-full border border-neutral-400 rounded-full py-2 flex  items-center text-black justify-center dark:bg-icon max-md:flex-col">
       {children}
     </div>
   );

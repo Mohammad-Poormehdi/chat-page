@@ -24,19 +24,6 @@ const LoginBody = () => {
              کد ارسال شده را وارد کنید
           </h1>
         )}
-        {/* {step === STEPS.PHONE ? (
-          <div className="w-[200px] h-[300px] mx-auto rounded-lg bg-icon text-white flex justify-center items-center">
-            <p>ویدیو توضیحات</p>
-          </div>
-        ) : (
-          <Image
-            src="/bot-image.png"
-            alt="bot image"
-            width={200}
-            height={300}
-            className="w-auto h-auto mx-auto"
-          />
-        )} */}
         {step === STEPS.PHONE ? (
           <Input type="text" placeholder="شماره همراه" />
         ) : (

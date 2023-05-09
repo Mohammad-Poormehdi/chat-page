@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #__next{
-  height: 100vh;
+  height: 100%;
 }
 main{
   height: 100%;
@@ -11,7 +11,7 @@ main{
 html,
 body,
 :root{
-  height: 100vh;
+  height: 100%;
 }
 ::-webkit-scrollbar{
   @apply w-2 h-4 max-md:hidden
