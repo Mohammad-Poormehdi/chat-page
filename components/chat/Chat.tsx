@@ -25,8 +25,9 @@ const Chat = () => {
       if (message.message === "") {
         return;
       }
+      setMassages((prevMessages) => [...prevMessages, message]);
+
       try {
-        setMassages([...messages, message]);
         console.log({ message: message.message });
         // const response = await fetch("https://hoshbato.com/app/api/chat/", {
         //   method: "POST",
@@ -44,6 +45,10 @@ const Chat = () => {
             },
           }
         );
+        setMassages((prevMessages) => [
+          ...prevMessages,
+          { id: cuid(), isBot: true, message: response.data[0].content },
+        ]);
         console.log(response.data);
       } catch (error) {
         console.error(error);
