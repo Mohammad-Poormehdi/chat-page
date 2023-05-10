@@ -52,6 +52,10 @@ const Chat = () => {
         console.log(response.data);
       } catch (error) {
         console.error(error);
+        setMassages((prevMessages) => [
+          ...prevMessages,
+          { id: cuid(), isBot: true, message: "ارتباط با api بر قرار نشد" },
+        ]);
       }
     },
     [messages]
