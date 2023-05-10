@@ -56,7 +56,7 @@ const ChatMenu = () => {
         ))}
       </div>
       {showModal && <GPT4Modal onOpen={handleShowModal} />}
-      <WordCountProgress className="absolute -bottom-2 right-3" />
+      <WordCountProgress className="absolute -bottom-12 right-3" />
     </div>
   );
 };
