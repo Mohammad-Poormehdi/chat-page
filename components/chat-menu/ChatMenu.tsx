@@ -33,7 +33,7 @@ const ChatMenu = () => {
   return (
     <div className="px-10 py-5 relative w-1/4 max-md:w-full max-md:pb-0 max-md:flex max-md:items-center max-md:justify-between max-md:gap-3 ">
       <div className="flex items-center gap-3 dark:text-white md:hidden">
-        <RiMessage3Fill className="text-icon" size={20} />
+        <RiMessage3Fill  className="text-icon" size={20} />
         <p>سابقه</p>
       </div>
       <div className="flex rounded-full my-4 text-sm bg-white dark:bg-primary-dark">
