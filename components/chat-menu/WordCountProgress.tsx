@@ -4,7 +4,9 @@ interface WordCountProgressProps {
 const WordCountProgress: React.FC<WordCountProgressProps> = ({ className }) => {
   return (
     <div className={`w-full space-y-4 ${className}`}>
-        <p dir="rtl" className="px-10 dark:text-icon">شما 60 درصد از اعتبار ماهانه را استفاده کردید</p>
+      <p dir="rtl" className="px-10 dark:text-icon">
+        شما 60 درصد از اعتبار ماهانه را استفاده کردید
+      </p>
       <div className="w-[80%] mx-auto rounded-full h-2 bg-icon flex justify-end">
         <div className="w-[60%] bg-primary h-full rounded-full"></div>
       </div>
