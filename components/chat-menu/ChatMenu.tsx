@@ -2,10 +2,16 @@ import { useCallback, useState } from "react";
 import Button from "../Button";
 import HistoryItem from "./HistoryItem";
 import cuid from "cuid";
-import {RiMessage3Fill} from 'react-icons/ri'
+import { RiMessage3Fill } from "react-icons/ri";
 import GPT4Modal from "./GPT4Modal";
+import Score from "../navbar/Score";
+import WordCountProgress from "./WordCountProgress";
 
-const buttons = [{ label: "ChatGPT 3.5" }, { label: "ChatGPT 4" }];
+const buttons = [
+  { label: "ChatGPT 3.5" },
+  { label: "ChatGPT Plus" },
+  { label: "ChatGPT Pro" },
+];
 const demoHistory = [
   { id: cuid(), label: "انواع ماساژ" },
   { id: cuid(), label: "نام دکتر تهرانی" },
@@ -25,15 +31,19 @@ const ChatMenu = () => {
     setActiveButton(label);
   }, []);
   return (
-    <div className="px-10 py-5 w-1/4 max-md:w-full max-md:pb-0 max-md:flex max-md:items-center max-md:justify-between ">
+    <div className="px-10 py-5 relative w-1/4 max-md:w-full max-md:pb-0 max-md:flex max-md:items-center max-md:justify-between max-md:gap-3 ">
       <div className="flex items-center gap-3 dark:text-white md:hidden">
         <RiMessage3Fill className="text-icon" size={20} />
         <p>سابقه</p>
       </div>
-      <div className="flex rounded-full my-4 bg-white dark:bg-primary-dark">
+      <div className="flex rounded-full my-4 text-sm bg-white dark:bg-primary-dark">
         {buttons.map((button) => (
           <Button
-            onClick={() => handleShowModal(true)}
+            onClick={
+              "ChatGPT 3.5" !== button.label
+                ? () => handleShowModal(true)
+                : undefined
+            }
             active={"ChatGPT 3.5" === button.label}
             key={button.label}
             label={button.label}
@@ -46,6 +56,7 @@ const ChatMenu = () => {
         ))}
       </div>
       {showModal && <GPT4Modal onOpen={handleShowModal} />}
+      <WordCountProgress className="absolute -bottom-2 right-3" />
     </div>
   );
 };

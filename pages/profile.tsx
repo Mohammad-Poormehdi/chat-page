@@ -5,8 +5,9 @@ import Head from "next/head";
 import Scores from "@/components/Scores";
 import { TbEdit } from "react-icons/tb";
 import InputContainer from "@/components/InputContainer";
-import { useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import PictureModal from "@/components/profile/PictureModal";
+import CalendarModal from "@/components/profile/CalendarModal";
 const profile = [
   "09123456789",
   "شمیلا امیریان",
@@ -17,12 +18,21 @@ const profile = [
 ];
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [year, setYear] = useState("1366");
+  const [month, setMonth] = useState("4");
+  const [day, setDay] = useState("1");
+  const [date, setDate] = useState("1366/4/1");
   const handleShowModal = useCallback(() => {
     setShowModal(true);
   }, []);
   const handleCloseModal = useCallback(() => {
     setShowModal(false);
   }, []);
+  const handleSaveDate = () => {
+    setDate(`${year}/${month}/${day}`);
+    setShowDatePicker(false);
+  };
   return (
     <>
       <Head>
@@ -51,27 +61,57 @@ const Profile = () => {
                 09123456789
               </div>
               <InputContainer
-              type="text"
+                type="text"
                 defaultValue="شمیلا امیریان"
                 placeholder="نام و نام خانوادگی"
               />
               <InputContainer
-              type="text"
+                type="text"
                 defaultValue="hesampoomni@gmail.com"
                 placeholder="ایمیل"
               />
+              <TextContainer>
+                <div
+                  onClick={() => {
+                    setShowDatePicker(true);
+                  }}
+                  className="cursor-pointer w-full text-center"
+                >
+                  {date}
+                </div>
+              </TextContainer>
               <InputContainer
-              type="text"
-                defaultValue="1366/1/1"
-                placeholder="تاریخ تولد"
+                type="text"
+                defaultValue="تهران"
+                placeholder="مکان"
               />
-              <InputContainer type="text" defaultValue="تهران" placeholder="مکان" />
-              <InputContainer type="text" defaultValue="خانم" placeholder="جنسیت" />
+              <InputContainer
+                type="text"
+                defaultValue="خانم"
+                placeholder="جنسیت"
+              />
             </div>
             <Scores score={2000} experience={1809} referral={12} />
           </div>
         </div>
         <PictureModal isOpen={showModal} onClose={handleCloseModal} />
+        <CalendarModal
+          onSubmit={handleSaveDate}
+          handleDayChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setDay(event.currentTarget.value)
+          }
+          handleMonthChange={(event: ChangeEvent<HTMLInputElement>) => {
+            setMonth(event.currentTarget.value);
+          }}
+          handleYearChange={(event: ChangeEvent<HTMLInputElement>) => {
+            setYear(event.currentTarget.value);
+          }}
+          isOpen={showDatePicker}
+          day={day}
+          month={month}
+          year={year}
+          onClose={() => setShowDatePicker(false)}
+        />
       </div>
     </>
   );

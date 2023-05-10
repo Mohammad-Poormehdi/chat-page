@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonProps {
   active?: boolean;
   label: string;
-  onClick?: () => void | null ;
+  onClick?: (() => void)   ;
 }
 const Button: React.FC<ButtonProps> = ({ label, active, onClick }) => {
   return (

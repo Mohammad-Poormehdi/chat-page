@@ -1,14 +1,19 @@
-import React from "react"
-import Image from "next/image"
-import {RiMessage3Fill} from 'react-icons/ri'
+import React from "react";
+import Image from "next/image";
+import { RiMessage3Fill } from "react-icons/ri";
+import { BsTrash3 } from "react-icons/bs";
 
-interface HistoryItemProps{
-    label:string,
+interface HistoryItemProps {
+  label: string;
 }
-const HistoryItem:React.FC<HistoryItemProps> = ({label})=>{
-    return <div className="flex w-full justify-end items-center gap-5">
-        <p className="dark:text-white">{label}</p>
-        <RiMessage3Fill size={20} className="text-icon" />
+const HistoryItem: React.FC<HistoryItemProps> = ({ label }) => {
+  return (
+    <div className="grid grid-cols-4 w-full justify-center items-center gap-5">
+      <button aria-label="delete"><BsTrash3 className="text-icon" /></button>
+      <p dir="rtl" className="dark:text-white col-span-2">{label}</p>
+      <RiMessage3Fill size={20} className="text-icon" />
+      
     </div>
-}
-export default HistoryItem
+  );
+};
+export default HistoryItem;
